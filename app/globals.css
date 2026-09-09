@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Canvas & Surface Tokens */
+  --bg-canvas: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f4f4f5;
+  --bg-surface-active: #e4e4e7;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Borders */
+  --border-subtle: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  /* Text & Content */
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+
+  /* Restrained Professional Accent */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-muted: #eff6ff;
+  --accent-foreground: #ffffff;
+
+  /* Badges & Tags */
+  --badge-bg: #f4f4f5;
+  --badge-text: #27272a;
+  --badge-border: #e4e4e7;
+
+  /* Accessibility Focus Ring */
+  --focus-ring: #2563eb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-canvas: #09090b;
+    --bg-surface: #121215;
+    --bg-surface-hover: #18181c;
+    --bg-surface-active: #222228;
+
+    --border-subtle: #27272a;
+    --border-strong: #3f3f46;
+
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --accent-muted: #1e293b;
+    --accent-foreground: #ffffff;
+
+    --badge-bg: #18181b;
+    --badge-text: #e4e4e7;
+    --badge-border: #27272a;
+
+    --focus-ring: #3b82f6;
   }
 }
 
+.dark {
+  --bg-canvas: #09090b;
+  --bg-surface: #121215;
+  --bg-surface-hover: #18181c;
+  --bg-surface-active: #222228;
+
+  --border-subtle: #27272a;
+  --border-strong: #3f3f46;
+
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-muted: #1e293b;
+  --accent-foreground: #ffffff;
+
+  --badge-bg: #18181b;
+  --badge-text: #e4e4e7;
+  --badge-border: #27272a;
+
+  --focus-ring: #3b82f6;
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-hover: var(--bg-surface-hover);
+  --color-surface-active: var(--bg-surface-active);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-txt-primary: var(--text-primary);
+  --color-txt-secondary: var(--text-secondary);
+  --color-txt-muted: var(--text-muted);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-fg: var(--accent-foreground);
+
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-badge-border: var(--badge-border);
+
+  --color-focus: var(--focus-ring);
+}
+
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Visible focus outline indicator */
+*:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Accessibility: Reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
