@@ -9,13 +9,13 @@ export const experienceData: ExperienceItem[] = [
     location: "Ahmedabad, Gujarat, India",
     isCurrent: true,
     description:
-      "Engineered enterprise-grade AI-powered SaaS and workflow platforms using Angular, TypeScript, RxJS, and modern frontend architecture.",
+      "Enterprise AI-Powered SaaS & Data Management Platform",
     achievements: [
-      "Built complex workflow automation, document management, and knowledge discovery interfaces using Angular and TypeScript.",
-      "Integrated BPMN-based process modeling tools, knowledge graph visualizations, and dynamic visual canvas components.",
+      "Engineered complex workflow automation, document management, and knowledge discovery interfaces using Angular and TypeScript.",
+      "Integrated BPMN-based process modeling tools, knowledge graph visualizers (Cytoscape.js), and template builder components.",
       "Architected reusable component libraries, shared service modules, and predictable state management using RxJS.",
-      "Integrated RESTful APIs, JWT authentication, permission guards, and real-time streaming via WebSockets/STOMP/SockJS.",
-      "Collaborated with backend teams and product stakeholders through technical reviews and Agile development cycles.",
+      "Integrated RESTful APIs, JWT authentication, RBAC permission guards, and real-time streaming via WebSockets/STOMP/SockJS.",
+      "Participated in technical architecture discussions, code reviews, and Agile development cycles.",
     ],
     technologies: [
       "Angular",
@@ -37,20 +37,25 @@ export const experienceData: ExperienceItem[] = [
     period: "Sep 2023 – Oct 2025",
     location: "Ahmedabad, Gujarat, India",
     description:
-      "Developed production web applications for enterprise clients across construction, warehousing, and retail operations.",
+      "Enterprise SaaS, Field Operations, Commerce & Digital Streaming Applications",
     achievements: [
-      "Engineered project management, warehouse workflow, equipment tracking, and field crew management interfaces.",
-      "Built automated PDF rate sheet generation tools, email notification systems, and data visualization dashboards.",
-      "Developed a Progressive Web Application (PWA) with offline persistence published across web and mobile platforms.",
-      "Implemented Next.js applications from setup through production deployment with performance optimizations.",
+      "Developed production enterprise web applications using Angular 15/17, Next.js 14/15, TypeScript, React 18/19, and RxJS.",
+      "Built enterprise ERP interfaces supporting heavy construction operations, dispatch workflows, project estimation, warehouse operations, and fleet management.",
+      "Engineered a mobile-first Progressive Web Application (PWA) with 5-stage timecard workflows, site activity validation, blueprint viewing with pinch-to-zoom, and vendor delivery links.",
+      "Contributed to Next.js/React consumer and administrative platforms covering e-commerce, interactive skill competitions, digital audio streaming, and subscription onboarding.",
+      "Built complex interactive interfaces including HTML5 canvas coordinate selection, magnification lenses, SVG overlays, and responsive event handling.",
+      "Integrated REST APIs, NSwag typed clients, JWT authentication, Next.js middleware, ApexCharts dashboards, and real-time communication via SignalR & Socket.IO.",
+      "Optimized frontend performance, PWA service worker caching, and Android TWA mobile-oriented user experiences.",
     ],
     technologies: [
       "Angular",
       "Next.js",
+      "React",
       "TypeScript",
-      "PWA",
       "RxJS",
-      "PDF Generation",
+      "PWA",
+      "SignalR",
+      "Socket.IO",
       "REST APIs",
       "Tailwind CSS",
     ],
@@ -62,9 +67,9 @@ export const experienceData: ExperienceItem[] = [
     period: "Jun 2022 – Aug 2023",
     location: "Ahmedabad, Gujarat, India",
     description:
-      "Developed production web applications featuring e-commerce, auction platforms, and real-time social interaction features.",
+      "E-Commerce, Auction & Real-time Web Applications",
     achievements: [
-      "Engineered dynamic blog applications, e-commerce interfaces, auction modules, and social web features.",
+      "Engineered dynamic content applications, e-commerce storefronts, auction modules, and social web features.",
       "Implemented Socket.IO real-time communication, JWT authentication, and secure authorization flows.",
       "Integrated payment gateways including Stripe, PayPal, and Escrow-based payment workflows.",
       "Enhanced SEO visibility and search ranking through structured metadata and performance optimizations.",
@@ -88,7 +93,7 @@ export const experienceData: ExperienceItem[] = [
     period: "Nov 2021 – Mar 2022",
     location: "Ahmedabad, Gujarat, India",
     description:
-      "Worked on an Angular-based Employee Management System for workforce administration.",
+      "Angular Employee Management System",
     achievements: [
       "Built employee details management, daily activity logs, monthly tracking, and multi-tier leave management workflows.",
       "Developed clean, accessible UI components using Angular Material and Angular 12/13.",
@@ -102,9 +107,9 @@ export const experienceData: ExperienceItem[] = [
     period: "Jun 2019 – Feb 2021",
     location: "Ahmedabad, Gujarat, India",
     description:
-      "Developed healthcare application interfaces connecting patients, doctors, laboratories, and medical stores.",
+      "Healthcare Workflow Application",
     achievements: [
-      "Built patient, doctor, laboratory, and pharmacy collaboration workflows.",
+      "Built patient, doctor, laboratory, and pharmacy collaboration workflow interfaces using Ionic and Angular.",
       "Integrated Google Maps API for facility location search and pharmacy discovery.",
     ],
     technologies: ["Ionic", "Angular", "TypeScript", "Google Maps API", "REST APIs"],
