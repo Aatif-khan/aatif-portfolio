@@ -20,10 +20,10 @@ export const Projects: React.FC = () => {
         <SectionHeading
           label="Selected Work"
           title="Featured Projects"
-          description="A curated selection of enterprise web platforms, workflow tools, and independent products demonstrating frontend architecture and problem solving."
+          description="A curated selection of enterprise web platforms, workflow tools, and consumer applications demonstrating frontend architecture and problem solving."
         />
 
-        {/* Featured Projects (GTC Enterprise & CashLoom) */}
+        {/* Primary Featured Case Studies Grid (ERPZi, ERPZi PWA, Spot-a-Ball) */}
         <div className="mt-10 space-y-8">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent" />
@@ -32,7 +32,7 @@ export const Projects: React.FC = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project) => (
               <Card
                 key={project.id}
@@ -59,7 +59,7 @@ export const Projects: React.FC = () => {
 
                   {/* Title & Subtitle */}
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-txt-primary tracking-tight">
+                    <h3 className="text-xl font-bold text-txt-primary tracking-tight">
                       {project.title}
                     </h3>
                     <p className="text-xs font-mono text-accent mt-1">
@@ -185,7 +185,7 @@ export const Projects: React.FC = () => {
             Additional Professional Engineering Projects
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {supportingProjects.map((project) => (
               <Card
                 key={project.id}
