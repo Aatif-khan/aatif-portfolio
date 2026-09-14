@@ -31,6 +31,17 @@ export interface ExperienceItem {
   isCurrent?: boolean;
 }
 
+export interface CaseStudyDetails {
+  overview: string;
+  myRole: string;
+  challenge: string;
+  contributions: string[];
+  keyEngineeringWork: string[];
+  technicalApproach: string;
+  technologies: string[];
+  outcome: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -46,15 +57,7 @@ export interface ProjectItem {
   liveUrlPlaceholder?: string;
   githubUrlPlaceholder?: string;
   highlights?: string[];
-  caseStudy?: {
-    overview: string;
-    problem: string;
-    context: string;
-    approach: string;
-    keyContributions: string[];
-    technicalChallenges: string[];
-    outcome: string;
-  };
+  caseStudy?: CaseStudyDetails;
 }
 
 export interface SkillCategory {
