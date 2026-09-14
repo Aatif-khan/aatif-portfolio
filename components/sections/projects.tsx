@@ -1,14 +1,31 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projectsData } from "@/data/projects";
+import { ProjectItem } from "@/data/types";
+import { CaseStudyModal } from "@/components/projects/case-study-modal";
 
 export const Projects: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const featuredProjects = projectsData.filter((p) => p.featured);
   const supportingProjects = projectsData.filter((p) => !p.featured);
+
+  const handleOpenCaseStudy = (project: ProjectItem) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseCaseStudy = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <section
@@ -18,17 +35,17 @@ export const Projects: React.FC = () => {
       <Container>
         {/* Section Heading */}
         <SectionHeading
-          label="Selected Work"
-          title="Featured Projects"
-          description="A curated selection of enterprise web platforms, workflow tools, and consumer applications demonstrating frontend architecture and problem solving."
+          label="Case Studies & Engineering Work"
+          title="Featured Case Studies"
+          description="In-depth technical case studies showcasing frontend architecture, complex enterprise state handling, dynamic UI components, real-time protocols, and mobile PWA applications."
         />
 
-        {/* Primary Featured Case Studies Grid (ERPZi, ERPZi PWA, Spot-a-Ball) */}
+        {/* Primary Featured Case Studies Grid */}
         <div className="mt-10 space-y-8">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent" />
             <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-accent">
-              Primary Featured Case Studies
+              Primary Case Studies
             </h3>
           </div>
 
@@ -36,7 +53,7 @@ export const Projects: React.FC = () => {
             {featuredProjects.map((project) => (
               <Card
                 key={project.id}
-                className="border-accent/40 bg-surface shadow-xs flex flex-col justify-between space-y-6"
+                className="border-accent/40 bg-surface shadow-xs flex flex-col justify-between space-y-6 hover:border-accent transition-colors"
               >
                 <div className="space-y-4">
                   {/* Category & Type Badges */}
@@ -46,13 +63,26 @@ export const Projects: React.FC = () => {
                       className="text-xs font-mono py-0.5"
                     >
                       {project.type === "personal"
-                        ? "Personal Project / Public PWA"
-                        : "Enterprise Professional Project"}
+                        ? "Personal Project"
+                        : "Professional Experience"}
                     </Badge>
 
                     {project.confidentialNotice && (
-                      <span className="text-[11px] font-mono text-txt-muted bg-surface-hover px-2 py-0.5 rounded border border-border-subtle">
-                        Confidentiality Protected
+                      <span className="text-[11px] font-mono text-txt-muted bg-canvas px-2 py-0.5 rounded border border-border-subtle flex items-center gap-1">
+                        <svg
+                          className="h-3 w-3 text-txt-muted shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                          />
+                        </svg>
+                        <span>Confidential</span>
                       </span>
                     )}
                   </div>
@@ -68,26 +98,26 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-txt-secondary leading-relaxed">
+                  <p className="text-sm text-txt-secondary leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
 
                   {/* Role / Responsibility */}
                   <div className="p-3 rounded-lg bg-canvas border border-border-subtle text-xs text-txt-secondary space-y-1">
                     <span className="font-mono font-semibold text-txt-primary block">
-                      My Frontend Role:
+                      My Role:
                     </span>
-                    <span>{project.myRole}</span>
+                    <span className="line-clamp-2">{project.myRole}</span>
                   </div>
 
                   {/* Contribution Highlights */}
                   {project.highlights && (
                     <div className="space-y-2">
                       <h4 className="text-xs font-mono font-medium text-txt-muted uppercase tracking-wider">
-                        Key Engineering Contributions
+                        Key Highlights
                       </h4>
                       <ul className="space-y-1.5">
-                        {project.highlights.map((highlight, idx) => (
+                        {project.highlights.slice(0, 3).map((highlight, idx) => (
                           <li
                             key={idx}
                             className="flex items-start gap-2 text-xs text-txt-secondary leading-relaxed"
@@ -106,7 +136,7 @@ export const Projects: React.FC = () => {
                                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
                               />
                             </svg>
-                            <span>{highlight}</span>
+                            <span className="line-clamp-2">{highlight}</span>
                           </li>
                         ))}
                       </ul>
@@ -114,10 +144,10 @@ export const Projects: React.FC = () => {
                   )}
                 </div>
 
-                {/* Footer: Tech Stack & Action Links */}
+                {/* Footer: Tech Stack & Action Buttons */}
                 <div className="pt-4 border-t border-border-subtle space-y-4">
                   <div className="flex flex-wrap items-center gap-1.5">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.slice(0, 5).map((tech) => (
                       <Badge
                         key={tech}
                         variant="muted"
@@ -126,51 +156,36 @@ export const Projects: React.FC = () => {
                         {tech}
                       </Badge>
                     ))}
+                    {project.technologies.length > 5 && (
+                      <span className="text-[10px] font-mono text-txt-muted">
+                        +{project.technologies.length - 5} more
+                      </span>
+                    )}
                   </div>
 
-                  {/* Action Link Buttons */}
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
-                    {project.type === "personal" ? (
-                      <>
-                        {project.liveUrl && (
-                          <Button
-                            variant="primary"
-                            size="sm"
-                            href={project.liveUrl}
-                            isExternal={true}
-                          >
-                            Live Demo &rarr;
-                          </Button>
-                        )}
-                        {project.githubUrl && (
-                          <Button
-                            variant="secondary"
-                            size="sm"
-                            href={project.githubUrl}
-                            isExternal={true}
-                          >
-                            GitHub Repo &rarr;
-                          </Button>
-                        )}
-                      </>
-                    ) : (
-                      <span className="text-xs font-mono text-txt-muted flex items-center gap-1.5">
-                        <svg
-                          className="h-4 w-4 text-txt-muted"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-                          />
-                        </svg>
-                        {project.confidentialNotice}
-                      </span>
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap items-center gap-2 pt-1">
+                    {project.caseStudy && (
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={() => handleOpenCaseStudy(project)}
+                        aria-label={`View Case Study for ${project.title}`}
+                      >
+                        View Case Study &rarr;
+                      </Button>
+                    )}
+
+                    {project.type === "personal" && project.liveUrl && (
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        href={project.liveUrl}
+                        isExternal={true}
+                        aria-label="View Live Demo of CashLoom"
+                      >
+                        Live Demo
+                      </Button>
                     )}
                   </div>
                 </div>
@@ -180,77 +195,99 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Supporting Professional Projects Grid */}
-        <div className="mt-16 space-y-6">
-          <div className="text-xs font-mono font-semibold uppercase tracking-wider text-txt-muted">
-            Additional Professional Engineering Projects
-          </div>
+        {supportingProjects.length > 0 && (
+          <div className="mt-16 space-y-6">
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-txt-muted">
+              Additional Professional Engineering Work
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {supportingProjects.map((project) => (
-              <Card
-                key={project.id}
-                hoverable
-                className="flex flex-col justify-between space-y-4"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <Badge variant="outline" className="text-[11px] font-mono py-0.5">
-                      Professional Work
-                    </Badge>
-                    <span className="text-[10px] font-mono text-txt-muted">
-                      Enterprise
-                    </span>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {supportingProjects.map((project) => (
+                <Card
+                  key={project.id}
+                  hoverable
+                  className="flex flex-col justify-between space-y-4"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <Badge variant="outline" className="text-[11px] font-mono py-0.5">
+                        Professional Project
+                      </Badge>
+                      <span className="text-[10px] font-mono text-txt-muted">
+                        Confidential
+                      </span>
+                    </div>
 
-                  <div>
-                    <h3 className="text-base font-bold text-txt-primary tracking-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-xs font-mono text-accent mt-0.5">
-                      {project.subtitle}
+                    <div>
+                      <h3 className="text-base font-bold text-txt-primary tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-xs font-mono text-accent mt-0.5">
+                        {project.subtitle}
+                      </p>
+                    </div>
+
+                    <p className="text-xs text-txt-secondary leading-relaxed line-clamp-3">
+                      {project.description}
                     </p>
                   </div>
 
-                  <p className="text-xs text-txt-secondary leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+                  <div className="pt-3 border-t border-border-subtle space-y-3">
+                    <div className="flex flex-wrap items-center gap-1">
+                      {project.technologies.slice(0, 4).map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="muted"
+                          className="text-[10px] font-mono py-0.5 px-1.5"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
 
-                <div className="pt-3 border-t border-border-subtle space-y-3">
-                  <div className="flex flex-wrap items-center gap-1">
-                    {project.technologies.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="muted"
-                        className="text-[10px] font-mono py-0.5 px-1.5"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
+                    <div className="flex items-center justify-between pt-1">
+                      {project.caseStudy && (
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => handleOpenCaseStudy(project)}
+                          className="text-xs"
+                          aria-label={`View Case Study for ${project.title}`}
+                        >
+                          Case Study &rarr;
+                        </Button>
+                      )}
 
-                  <div className="text-[11px] font-mono text-txt-muted flex items-center gap-1">
-                    <svg
-                      className="h-3.5 w-3.5 text-txt-muted shrink-0"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-                      />
-                    </svg>
-                    <span>Generalized details</span>
+                      <span className="text-[10px] font-mono text-txt-muted flex items-center gap-1">
+                        <svg
+                          className="h-3 w-3 text-txt-muted shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                          />
+                        </svg>
+                        <span>Details generalized</span>
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* Case Study Detail Modal */}
+        <CaseStudyModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={handleCloseCaseStudy}
+        />
       </Container>
     </section>
   );
