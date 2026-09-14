@@ -34,15 +34,18 @@ export interface ExperienceItem {
 export interface ProjectItem {
   id: string;
   title: string;
-  type: 'professional' | 'personal';
+  type: "professional" | "personal";
   subtitle: string;
   description: string;
   myRole: string;
   technologies: string[];
   confidentialNotice?: string;
   featured: boolean;
+  liveUrl?: string;
+  githubUrl?: string;
   liveUrlPlaceholder?: string;
   githubUrlPlaceholder?: string;
+  highlights?: string[];
   caseStudy?: {
     overview: string;
     problem: string;
