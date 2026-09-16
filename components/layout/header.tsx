@@ -22,6 +22,17 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("portfolio:navigate", {
+          detail: { section: sectionId },
+        })
+      );
+    }
+  };
+
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
@@ -34,7 +45,7 @@ export const Header: React.FC = () => {
           <Link
             href="#home"
             className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md p-1 -ml-1 transition-opacity"
-            onClick={() => setActiveSection("home")}
+            onClick={() => handleNavClick("home")}
           >
             <span className="text-base sm:text-lg font-bold tracking-tight text-txt-primary group-hover:text-accent transition-colors">
               {personalData.name}
@@ -57,7 +68,7 @@ export const Header: React.FC = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setActiveSection(sectionId)}
+                  onClick={() => handleNavClick(sectionId)}
                   className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     isActive
                       ? "text-accent bg-accent-muted/60 font-semibold"
@@ -72,7 +83,12 @@ export const Header: React.FC = () => {
 
           {/* Desktop Header CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="secondary" size="sm" href="#contact">
+            <Button
+              variant="secondary"
+              size="sm"
+              href="#contact"
+              onClick={() => handleNavClick("contact")}
+            >
               Let&apos;s Connect
             </Button>
           </div>
@@ -142,7 +158,7 @@ export const Header: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   onClick={() => {
-                    setActiveSection(sectionId);
+                    handleNavClick(sectionId);
                     closeMobileMenu();
                   }}
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
@@ -163,7 +179,10 @@ export const Header: React.FC = () => {
               size="md"
               href="#contact"
               className="w-full justify-center"
-              onClick={closeMobileMenu}
+              onClick={() => {
+                handleNavClick("contact");
+                closeMobileMenu();
+              }}
             >
               Let&apos;s Connect
             </Button>
