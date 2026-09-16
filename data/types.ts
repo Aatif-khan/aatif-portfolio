@@ -68,6 +68,11 @@ export interface SkillCategory {
 export interface ServiceItem {
   id: string;
   title: string;
+  subtitle?: string;
   description: string;
+  categoryTag?: string;
+  isPrimary?: boolean;
   capabilities: string[];
+  highlights?: string[];
+  iconName: string;
 }
