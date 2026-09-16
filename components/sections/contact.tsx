@@ -13,6 +13,7 @@ interface FormData {
   email: string;
   subject: string;
   message: string;
+  website: string; // Honeypot spam protection field
 }
 
 interface FormErrors {
@@ -28,6 +29,7 @@ export const Contact: React.FC = () => {
     email: "",
     subject: "",
     message: "",
+    website: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -77,7 +79,7 @@ export const Contact: React.FC = () => {
     };
   }, []);
 
-  // Validate individual field or all fields
+  // Client-side form validation
   const validate = (data: FormData): FormErrors => {
     const errs: FormErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -125,10 +127,10 @@ export const Contact: React.FC = () => {
     setErrors(validate(formData));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Mark all fields as touched
+    // Mark required fields as touched
     setTouched({
       name: true,
       email: true,
@@ -151,30 +153,53 @@ export const Contact: React.FC = () => {
     setStatusMessage({ type: null, text: "" });
 
     try {
-      // Construct mailto URL to directly dispatch message via email client
-      const mailtoSubject = encodeURIComponent(
-        `[Portfolio Contact] ${formData.subject}`
-      );
-      const mailtoBody = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      );
-      const mailtoUrl = `mailto:${personalData.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
-
-      // Trigger mailto link
-      window.location.href = mailtoUrl;
-
-      setStatusMessage({
-        type: "info",
-        text: `Opening your email client to send your message to ${personalData.email}. If your mail client does not open automatically, you can email me directly below.`,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          website: formData.website, // Honeypot field
+        }),
       });
 
-      // Clear form after dispatch trigger
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setTouched({});
+      const data = await response.json().catch(() => null);
+
+      if (response.ok && data?.success) {
+        setStatusMessage({
+          type: "success",
+          text:
+            data.message ||
+            "Thanks for reaching out. I'll get back to you as soon as possible.",
+        });
+        // Clear form data and validation on successful email delivery
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          website: "",
+        });
+        setTouched({});
+        setErrors({});
+      } else {
+        const errorMsg =
+          data?.error ||
+          "Something went wrong while sending your message. Please try again or email me directly.";
+        setStatusMessage({
+          type: "error",
+          text: errorMsg,
+        });
+      }
     } catch {
       setStatusMessage({
         type: "error",
-        text: "Failed to open email client. Please send your email directly to " + personalData.email,
+        text:
+          "Something went wrong while sending your message. Please try again or email me directly.",
       });
     } finally {
       setIsSubmitting(false);
@@ -231,6 +256,20 @@ export const Contact: React.FC = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                {/* Honeypot Field for Spam Protection (Visually Hidden) */}
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="contact-website">Website</label>
+                  <input
+                    id="contact-website"
+                    name="website"
+                    type="text"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name Input */}
@@ -388,7 +427,7 @@ export const Contact: React.FC = () => {
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                           />
                         </svg>
-                        <span>Opening Mail Client...</span>
+                        <span>Sending...</span>
                       </span>
                     ) : (
                       <span>Send Message &rarr;</span>
@@ -396,7 +435,7 @@ export const Contact: React.FC = () => {
                   </Button>
 
                   <span className="text-[11px] font-mono text-txt-muted">
-                    Sends via your email client
+                    Delivered directly to inbox
                   </span>
                 </div>
               </form>
