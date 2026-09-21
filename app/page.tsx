@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-full flex flex-col bg-canvas text-txt-primary">
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Hero />
         <About />
         <Experience />
