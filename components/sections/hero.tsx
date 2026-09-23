@@ -75,8 +75,8 @@ export const Hero: React.FC = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                href="#"
-                title="[PLACEHOLDER: Resume PDF path]"
+                href="/resume/Aatif_Khan_Pathan_Angular_Developer.pdf"
+                download="Aatif_Khan_Pathan_Angular_Developer.pdf"
                 className="w-full sm:w-auto"
               >
                 Download Resume

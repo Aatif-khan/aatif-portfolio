@@ -62,13 +62,18 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   if ("href" in rest && rest.href) {
     const { href, ...anchorRest } = rest as AnchorProps;
-    if (isExternal || href.startsWith("http") || href.startsWith("mailto:")) {
+    const isExt = isExternal || href.startsWith("http");
+    const isAnchor = href.startsWith("#");
+    const isDownload = Boolean(anchorRest.download) || href.endsWith(".pdf");
+    const isProtocol = href.startsWith("mailto:") || href.startsWith("tel:");
+
+    if (isExt || isAnchor || isDownload || isProtocol) {
       return (
         <a
           href={href}
           className={computedClassName}
-          target={isExternal ? "_blank" : undefined}
-          rel={isExternal ? "noopener noreferrer" : undefined}
+          target={isExt ? "_blank" : anchorRest.target}
+          rel={isExt ? "noopener noreferrer" : anchorRest.rel}
           {...anchorRest}
         >
           {children}
