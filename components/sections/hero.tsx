@@ -26,15 +26,17 @@ export const Hero: React.FC = () => {
           {/* Main Content Column */}
           <div className="lg:col-span-7 flex flex-col items-start gap-6">
             {/* Professional Status / Role Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border-subtle bg-surface text-txt-secondary text-xs font-mono">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>{personalData.role}</span>
-              <span className="text-border-strong">•</span>
-              <span className="text-txt-muted">{personalData.experienceYears} Years Exp</span>
+            <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1.5 rounded-2xl sm:rounded-full border border-border-subtle bg-surface text-txt-secondary text-xs font-mono max-w-full">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span className="break-words">{personalData.role}</span>
+              </div>
+              <span className="text-border-strong hidden sm:inline">•</span>
+              <span className="text-txt-muted shrink-0">{personalData.experienceYears} Years Exp</span>
             </div>
 
             {/* Primary H1 Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-txt-primary leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-txt-primary leading-[1.12] break-words">
               Building Scalable{" "}
               <span className="text-accent underline decoration-accent/30 underline-offset-8">
                 Enterprise Web
@@ -95,7 +97,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtle Abstract Technical Architecture Visual Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <Card className="w-full max-w-md bg-surface/80 backdrop-blur-xs border-border-strong/60 p-6 space-y-5 shadow-sm">
+            <Card className="w-full max-w-md bg-surface/80 backdrop-blur-xs border-border-strong/60 p-4 sm:p-6 space-y-5 shadow-sm">
               <div className="flex items-center justify-between border-b border-border-subtle pb-4">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-red-400/80" />
@@ -108,27 +110,27 @@ export const Hero: React.FC = () => {
               </div>
 
               <div className="space-y-3 font-mono text-xs text-txt-secondary">
-                <div className="flex items-center justify-between p-2.5 rounded bg-canvas border border-border-subtle">
+                <div className="flex flex-wrap items-center justify-between gap-1 p-2.5 rounded bg-canvas border border-border-subtle">
                   <span className="text-accent font-semibold">@Component</span>
                   <span className="text-txt-muted">Angular 19+</span>
                 </div>
-                <div className="flex items-center justify-between p-2.5 rounded bg-canvas border border-border-subtle">
+                <div className="flex flex-wrap items-center justify-between gap-1 p-2.5 rounded bg-canvas border border-border-subtle">
                   <span className="text-txt-primary font-semibold">State Management</span>
                   <span className="text-txt-muted">RxJS Observables</span>
                 </div>
-                <div className="flex items-center justify-between p-2.5 rounded bg-canvas border border-border-subtle">
+                <div className="flex flex-wrap items-center justify-between gap-1 p-2.5 rounded bg-canvas border border-border-subtle">
                   <span className="text-txt-primary font-semibold">Data Layer</span>
                   <span className="text-txt-muted">REST & WebSockets</span>
                 </div>
-                <div className="flex items-center justify-between p-2.5 rounded bg-canvas border border-border-subtle">
+                <div className="flex flex-wrap items-center justify-between gap-1 p-2.5 rounded bg-canvas border border-border-subtle">
                   <span className="text-txt-primary font-semibold">Application Type</span>
                   <span className="text-txt-muted">Enterprise SaaS / PWA</span>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-border-subtle flex items-center justify-between text-xs text-txt-muted">
-                <span>Location: {personalData.location}</span>
-                <span className="text-emerald-500 font-medium">Available</span>
+              <div className="pt-2 border-t border-border-subtle flex flex-wrap items-center justify-between gap-2 text-xs text-txt-muted">
+                <span className="break-words">Location: {personalData.location}</span>
+                <span className="text-emerald-500 font-medium shrink-0">Available</span>
               </div>
             </Card>
           </div>
