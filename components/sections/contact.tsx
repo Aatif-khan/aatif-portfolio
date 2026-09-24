@@ -229,7 +229,7 @@ export const Contact: React.FC = () => {
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Column 1: Contact Form (7 cols on lg) */}
           <div className="lg:col-span-7">
-            <Card className="bg-surface border-border-subtle p-6 sm:p-8 space-y-6">
+            <Card className="bg-surface border-border-subtle p-4 sm:p-6 md:p-8 space-y-6">
               <div>
                 <h3 className="text-xl font-bold text-txt-primary tracking-tight">
                   Send a Message
@@ -445,7 +445,7 @@ export const Contact: React.FC = () => {
           {/* Column 2: Direct Contact Info & Social Links (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-6">
             {/* Card 1: Direct Contact Details */}
-            <Card className="bg-surface border-border-subtle p-6 space-y-5">
+            <Card className="bg-surface border-border-subtle p-4 sm:p-6 space-y-5">
               <div className="space-y-1">
                 <Badge variant="accent" className="text-[10px] font-mono py-0.5">
                   Direct Contact
@@ -584,7 +584,7 @@ export const Contact: React.FC = () => {
             </Card>
 
             {/* Card 2: Open Opportunities Guidance */}
-            <Card className="bg-canvas border-border-subtle p-6 space-y-3">
+            <Card className="bg-canvas border-border-subtle p-4 sm:p-6 space-y-3">
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-txt-primary">

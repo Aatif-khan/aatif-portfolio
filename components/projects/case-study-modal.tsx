@@ -52,7 +52,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-xl shadow-2xl p-6 sm:p-8 text-txt-primary my-auto"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 text-txt-primary my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Bar / Close Button */}
@@ -91,11 +91,11 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
             <h2
               id="case-study-title"
-              className="text-2xl sm:text-3xl font-bold tracking-tight text-txt-primary"
+              className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-txt-primary break-words"
             >
               {project.title}
             </h2>
-            <p className="text-sm font-mono text-accent">{project.subtitle}</p>
+            <p className="text-sm font-mono text-accent break-words">{project.subtitle}</p>
           </div>
 
           <button
@@ -252,7 +252,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               )}
             </div>
           ) : (
-            <div className="text-xs font-mono text-txt-muted flex items-center gap-1.5">
+            <div className="text-xs font-mono text-txt-muted flex flex-wrap items-center gap-1.5 break-words">
               <svg
                 className="h-4 w-4 text-txt-muted shrink-0"
                 fill="none"
@@ -270,7 +270,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             </div>
           )}
 
-          <Button variant="secondary" size="sm" onClick={onClose}>
+          <Button variant="secondary" size="sm" onClick={onClose} className="w-full sm:w-auto">
             Close Case Study
           </Button>
         </div>

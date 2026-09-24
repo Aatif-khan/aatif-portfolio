@@ -35,8 +35,8 @@ export const Skills: React.FC = () => {
                 className="border-accent/40 bg-surface shadow-xs flex flex-col justify-between space-y-4 relative overflow-hidden"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <h4 className="text-xl font-bold text-txt-primary tracking-tight">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <h4 className="text-xl font-bold text-txt-primary tracking-tight break-words">
                       {skill.name}
                     </h4>
                     <Badge variant="accent" className="text-[11px] py-0.5">

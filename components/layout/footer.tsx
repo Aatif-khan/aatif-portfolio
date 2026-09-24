@@ -38,10 +38,10 @@ export const Footer: React.FC = () => {
 
         {/* Footer Bottom Metadata Row */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-txt-muted">
-          <div>
+          <div className="text-center sm:text-left">
             © {new Date().getFullYear()} {personalData.name}. All rights reserved.
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4">
             <a
               href={personalData.linkedin}
               target="_blank"

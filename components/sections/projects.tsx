@@ -209,7 +209,7 @@ export const Projects: React.FC = () => {
                   className="flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <Badge variant="outline" className="text-[11px] font-mono py-0.5">
                         Professional Project
                       </Badge>
@@ -219,10 +219,10 @@ export const Projects: React.FC = () => {
                     </div>
 
                     <div>
-                      <h3 className="text-base font-bold text-txt-primary tracking-tight">
+                      <h3 className="text-base font-bold text-txt-primary tracking-tight break-words">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-mono text-accent mt-0.5">
+                      <p className="text-xs font-mono text-accent mt-0.5 break-words">
                         {project.subtitle}
                       </p>
                     </div>
@@ -245,7 +245,7 @@ export const Projects: React.FC = () => {
                       ))}
                     </div>
 
-                    <div className="flex items-center justify-between pt-1">
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
                       {project.caseStudy && (
                         <Button
                           variant="secondary"

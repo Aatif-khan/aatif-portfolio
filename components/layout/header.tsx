@@ -69,13 +69,13 @@ export const Header: React.FC = () => {
           {/* Logo / Personal Brand */}
           <Link
             href="#home"
-            className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md p-1 -ml-1 transition-opacity"
+            className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md p-1 -ml-1 transition-opacity shrink-0"
             onClick={() => handleNavClick("home")}
           >
             <span className="text-base sm:text-lg font-bold tracking-tight text-txt-primary group-hover:text-accent transition-colors">
               {personalData.name}
             </span>
-            <span className="text-xs font-mono text-txt-muted hidden sm:inline-block">
+            <span className="text-xs font-mono text-txt-muted hidden xl:inline-block">
               {personalData.role}
             </span>
           </Link>
@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav
             aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-1 lg:gap-2"
+            className="hidden md:flex items-center gap-0.5 lg:gap-1.5 xl:gap-2"
           >
             {NavItems.ALL.map((item) => {
               const sectionId = item.href.replace("#", "");
@@ -94,7 +94,7 @@ export const Header: React.FC = () => {
                   key={item.href}
                   href={item.href}
                   onClick={() => handleNavClick(sectionId)}
-                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
+                  className={`text-sm font-medium px-2.5 lg:px-3 py-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     isActive
                       ? "text-accent bg-accent-muted/60 font-semibold"
                       : "text-txt-secondary hover:text-txt-primary hover:bg-surface-hover"
@@ -107,7 +107,7 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* Desktop Header CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 shrink-0">
             <Button
               variant="secondary"
               size="sm"
@@ -171,7 +171,7 @@ export const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden border-b border-border-subtle bg-surface px-4 pt-3 pb-6 space-y-1 shadow-lg transition-all animate-in fade-in slide-in-from-top-2"
+          className="md:hidden border-b border-border-subtle bg-surface px-4 pt-3 pb-6 space-y-1 shadow-lg transition-all animate-in fade-in slide-in-from-top-2 max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <nav aria-label="Mobile Navigation" className="flex flex-col space-y-1">
             {NavItems.ALL.map((item) => {

@@ -184,7 +184,7 @@ export const Services: React.FC = () => {
             >
               <div className="space-y-4">
                 {/* Header: Icon & Category Badge */}
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="p-2.5 rounded-lg bg-canvas border border-border-subtle shrink-0">
                     <ServiceIcon iconName={service.iconName} />
                   </div>
@@ -201,11 +201,11 @@ export const Services: React.FC = () => {
 
                 {/* Title & Subtitle */}
                 <div>
-                  <h3 className="text-xl font-bold text-txt-primary tracking-tight">
+                  <h3 className="text-xl font-bold text-txt-primary tracking-tight break-words">
                     {service.title}
                   </h3>
                   {service.subtitle && (
-                    <p className="text-xs font-mono text-accent mt-0.5">
+                    <p className="text-xs font-mono text-accent mt-0.5 break-words">
                       {service.subtitle}
                     </p>
                   )}
@@ -281,7 +281,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Bottom CTA Box */}
-        <div className="mt-16 p-8 rounded-xl bg-canvas border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 p-5 sm:p-8 rounded-xl bg-canvas border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl text-center md:text-left">
             <h3 className="text-xl font-bold text-txt-primary tracking-tight">
               Have a frontend project or need an Angular / Next.js engineer?
@@ -295,7 +295,7 @@ export const Services: React.FC = () => {
             variant="primary"
             size="md"
             href="#contact"
-            className="shrink-0"
+            className="shrink-0 w-full sm:w-auto"
           >
             Get in Touch &rarr;
           </Button>
