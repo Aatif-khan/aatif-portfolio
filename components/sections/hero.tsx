@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 overflow-hidden border-b border-border-subtle/50"
+      className="relative pt-6 sm:pt-14 lg:pt-20 pb-10 sm:pb-16 lg:pb-24 overflow-hidden border-b border-border-subtle/50 scroll-mt-16 sm:scroll-mt-20"
     >
       {/* Subtle background grid accent pattern */}
       <div
@@ -22,9 +22,9 @@ export const Hero: React.FC = () => {
       />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-8 items-center">
           {/* Main Content Column */}
-          <div className="lg:col-span-7 flex flex-col items-start gap-6">
+          <div className="lg:col-span-7 flex flex-col items-start gap-4 sm:gap-6">
             {/* Professional Status / Role Eyebrow */}
             <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1.5 rounded-2xl sm:rounded-full border border-border-subtle bg-surface text-txt-secondary text-xs font-mono max-w-full">
               <div className="inline-flex items-center gap-2">
@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
             </p>
 
             {/* Core Technology Signal Badges */}
-            <div className="flex flex-col gap-2 w-full max-w-xl pt-2">
+            <div className="flex flex-col gap-2 w-full max-w-xl pt-1 sm:pt-2">
               <span className="text-xs font-mono font-medium text-txt-muted uppercase tracking-wider">
                 Core Specialization
               </span>
@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Call to Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto">
               <Button variant="primary" size="lg" href="#projects" className="w-full sm:w-auto">
                 View My Work
               </Button>
@@ -97,8 +97,8 @@ export const Hero: React.FC = () => {
 
           {/* Subtle Abstract Technical Architecture Visual Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <Card className="w-full max-w-md bg-surface/80 backdrop-blur-xs border-border-strong/60 p-4 sm:p-6 space-y-5 shadow-sm">
-              <div className="flex items-center justify-between border-b border-border-subtle pb-4">
+            <Card className="w-full max-w-md bg-surface/80 backdrop-blur-xs border-border-strong/60 p-4 sm:p-6 space-y-3.5 sm:space-y-5 shadow-sm">
+              <div className="flex items-center justify-between border-b border-border-subtle pb-3 sm:pb-4">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-red-400/80" />
                   <div className="h-3 w-3 rounded-full bg-amber-400/80" />
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
                 </span>
               </div>
 
-              <div className="space-y-3 font-mono text-xs text-txt-secondary">
+              <div className="space-y-2 sm:space-y-3 font-mono text-xs text-txt-secondary">
                 <div className="flex flex-wrap items-center justify-between gap-1 p-2.5 rounded bg-canvas border border-border-subtle">
                   <span className="text-accent font-semibold">@Component</span>
                   <span className="text-txt-muted">Angular 19+</span>

@@ -6,7 +6,7 @@ import { personalData } from "@/data/personal";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-border-subtle bg-canvas text-txt-secondary py-12">
+    <footer className="border-t border-border-subtle bg-canvas text-txt-secondary py-8 sm:py-12">
       <Container>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-border-subtle">
           {/* Personal Brand Info */}

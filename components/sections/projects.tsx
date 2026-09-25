@@ -30,7 +30,7 @@ export const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-canvas"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-canvas scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -41,7 +41,7 @@ export const Projects: React.FC = () => {
         />
 
         {/* Primary Featured Case Studies Grid */}
-        <div className="mt-10 space-y-8">
+        <div className="mt-6 sm:mt-10 space-y-6 sm:space-y-8">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent" />
             <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-accent">
@@ -49,7 +49,7 @@ export const Projects: React.FC = () => {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {featuredProjects.map((project) => (
               <Card
                 key={project.id}
@@ -196,7 +196,7 @@ export const Projects: React.FC = () => {
 
         {/* Supporting Professional Projects Grid */}
         {supportingProjects.length > 0 && (
-          <div className="mt-16 space-y-6">
+          <div className="mt-10 sm:mt-16 space-y-4 sm:space-y-6">
             <div className="text-xs font-mono font-semibold uppercase tracking-wider text-txt-muted">
               Additional Professional Engineering Work
             </div>

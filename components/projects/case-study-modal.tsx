@@ -45,18 +45,18 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/75 backdrop-blur-sm animate-fade-in overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center px-3.5 py-6 sm:px-6 sm:py-8 md:p-8 bg-black/75 backdrop-blur-sm animate-fade-in"
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-surface border border-border-subtle rounded-xl shadow-2xl p-4 sm:p-6 md:p-8 text-txt-primary my-auto"
+        className="relative w-full max-w-4xl max-h-[85vh] sm:max-h-[88vh] flex flex-col bg-surface border border-border-subtle rounded-xl sm:rounded-2xl shadow-2xl text-txt-primary my-auto overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top Bar / Close Button */}
-        <div className="flex items-start justify-between gap-4 pb-6 border-b border-border-subtle">
+        {/* Top Bar / Close Button (Always visible at top of modal) */}
+        <div className="px-4 sm:px-6 md:px-8 py-3.5 sm:py-5 border-b border-border-subtle bg-surface shrink-0 flex items-start justify-between gap-3">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               <Badge
@@ -119,8 +119,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           </button>
         </div>
 
-        {/* Content Body */}
-        <div className="py-6 space-y-8 text-sm leading-relaxed text-txt-secondary">
+        {/* Content Body (Scrollable Internally) */}
+        <div className="flex-1 overflow-y-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 sm:space-y-7 text-sm leading-relaxed text-txt-secondary">
           {/* 1. Overview */}
           <div className="space-y-2">
             <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-accent">
@@ -226,8 +226,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           </div>
         </div>
 
-        {/* Modal Footer Actions */}
-        <div className="pt-6 border-t border-border-subtle flex flex-wrap items-center justify-between gap-4">
+        {/* Modal Footer Actions (Always visible at bottom of modal) */}
+        <div className="px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 border-t border-border-subtle bg-surface shrink-0 flex flex-wrap items-center justify-between gap-3">
           {project.type === "personal" ? (
             <div className="flex flex-wrap items-center gap-3">
               {project.liveUrl && (

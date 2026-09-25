@@ -9,7 +9,7 @@ export const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-canvas"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-canvas scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -19,9 +19,9 @@ export const About: React.FC = () => {
           description="A focused look at my technical background, core engineering principles, and enterprise application focus."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mt-6 sm:mt-8">
           {/* Left Column: Background & Engineering Principles */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             <Card className="space-y-4">
               <h3 className="text-xl font-bold text-txt-primary tracking-tight">
                 Professional Background

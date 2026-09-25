@@ -9,7 +9,7 @@ export const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-canvas"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-canvas scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -20,7 +20,7 @@ export const Skills: React.FC = () => {
         />
 
         {/* Tier 1: Core Specialization Hero Cards */}
-        <div className="mt-10 space-y-4">
+        <div className="mt-6 sm:mt-10 space-y-4">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-accent" />
             <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-accent">
@@ -71,7 +71,7 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Tier 2 & 3: Categorized Tech Stack Grid */}
-        <div className="mt-16 space-y-6">
+        <div className="mt-10 sm:mt-16 space-y-4 sm:space-y-6">
           <div className="text-xs font-mono font-semibold uppercase tracking-wider text-txt-muted">
             Ecosystem & Specialized Domains
           </div>

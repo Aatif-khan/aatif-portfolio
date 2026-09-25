@@ -160,7 +160,7 @@ export const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-surface"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-surface scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -171,7 +171,7 @@ export const Services: React.FC = () => {
         />
 
         {/* Services Grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-6 sm:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {servicesData.map((service) => (
             <Card
               key={service.id}
@@ -281,7 +281,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Bottom CTA Box */}
-        <div className="mt-16 p-5 sm:p-8 rounded-xl bg-canvas border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-10 sm:mt-16 p-4 sm:p-8 rounded-xl bg-canvas border border-border-subtle flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           <div className="space-y-2 max-w-2xl text-center md:text-left">
             <h3 className="text-xl font-bold text-txt-primary tracking-tight">
               Have a frontend project or need an Angular / Next.js engineer?
