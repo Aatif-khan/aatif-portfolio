@@ -215,7 +215,7 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-canvas"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-canvas scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -226,10 +226,10 @@ export const Contact: React.FC = () => {
         />
 
         {/* 2-Column Grid Layout */}
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="mt-6 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Column 1: Contact Form (7 cols on lg) */}
           <div className="lg:col-span-7">
-            <Card className="bg-surface border-border-subtle p-4 sm:p-6 md:p-8 space-y-6">
+            <Card className="bg-surface border-border-subtle p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
               <div>
                 <h3 className="text-xl font-bold text-txt-primary tracking-tight">
                   Send a Message

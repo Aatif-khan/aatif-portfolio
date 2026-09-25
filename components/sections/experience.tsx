@@ -9,7 +9,7 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="py-16 sm:py-24 border-b border-border-subtle/60 relative bg-canvas"
+      className="py-12 sm:py-20 lg:py-24 border-b border-border-subtle/60 relative bg-canvas scroll-mt-16 sm:scroll-mt-20"
     >
       <Container>
         {/* Section Heading */}
@@ -20,7 +20,7 @@ export const Experience: React.FC = () => {
         />
 
         {/* Timeline Container */}
-        <div className="relative mt-12 space-y-8 sm:space-y-10">
+        <div className="relative mt-6 sm:mt-12 space-y-6 sm:space-y-10">
           {/* Vertical Timeline Guide Line (Desktop/Tablet) */}
           <div
             className="absolute left-4 sm:left-6 top-4 bottom-4 w-0.5 bg-border-subtle hidden md:block"

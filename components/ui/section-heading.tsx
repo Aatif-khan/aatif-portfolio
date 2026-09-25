@@ -17,7 +17,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col gap-2 mb-10 ${
+      className={`flex flex-col gap-1.5 sm:gap-2 mb-6 sm:mb-10 ${
         centered ? "items-center text-center mx-auto max-w-2xl" : "items-start"
       } ${className}`.trim()}
     >

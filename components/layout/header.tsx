@@ -43,7 +43,10 @@ export const Header: React.FC = () => {
     };
   }, []);
 
-  const handleNavClick = (sectionId: string) => {
+  const animFrameRef = React.useRef<number | null>(null);
+
+  // Desktop navigation: Keep original, proven working scrollIntoView behavior
+  const handleDesktopNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
     if (typeof window !== "undefined") {
       window.dispatchEvent(
@@ -58,8 +61,80 @@ export const Header: React.FC = () => {
     }
   };
 
-  const closeMobileMenu = () => {
+  // Mobile navigation: Account for 64px fixed header offset, prevent layout shifts, and provide natural smooth easing
+  const handleMobileNavClick = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveSection(sectionId);
     setIsMobileMenuOpen(false);
+
+    if (typeof window === "undefined") return;
+
+    window.history.pushState(null, "", `#${sectionId}`);
+    window.dispatchEvent(
+      new CustomEvent("portfolio:navigate", {
+        detail: { section: sectionId },
+      })
+    );
+
+    const targetElement = document.getElementById(sectionId);
+    if (!targetElement) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Mobile sticky header height is exactly 64px (h-16)
+    const mobileHeaderHeight = 64;
+    const targetY =
+      sectionId === "home"
+        ? 0
+        : Math.max(
+            0,
+            Math.round(
+              targetElement.getBoundingClientRect().top +
+                window.pageYOffset -
+                mobileHeaderHeight
+            )
+          );
+
+    if (prefersReducedMotion) {
+      window.scrollTo(0, targetY);
+      return;
+    }
+
+    // Cancel any previous in-flight animation
+    if (animFrameRef.current) {
+      cancelAnimationFrame(animFrameRef.current);
+    }
+
+    const startY = window.pageYOffset;
+    const distance = targetY - startY;
+    if (Math.abs(distance) < 2) return;
+
+    // Natural, smooth scroll duration (650ms to 850ms)
+    const duration = Math.min(850, Math.max(650, 600 + Math.abs(distance) * 0.08));
+    let startTime: number | null = null;
+
+    // Gentle ease-in-out quadratic curve for natural eye tracking
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    const step = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
+
+      window.scrollTo(0, Math.round(startY + distance * ease));
+
+      if (progress < 1) {
+        animFrameRef.current = window.requestAnimationFrame(step);
+      } else {
+        animFrameRef.current = null;
+      }
+    };
+
+    animFrameRef.current = window.requestAnimationFrame(step);
   };
 
   return (
@@ -70,7 +145,13 @@ export const Header: React.FC = () => {
           <Link
             href="#home"
             className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus rounded-md p-1 -ml-1 transition-opacity shrink-0"
-            onClick={() => handleNavClick("home")}
+            onClick={(e) => {
+              if (window.innerWidth < 768) {
+                handleMobileNavClick("home", e);
+              } else {
+                handleDesktopNavClick("home");
+              }
+            }}
           >
             <span className="text-base sm:text-lg font-bold tracking-tight text-txt-primary group-hover:text-accent transition-colors">
               {personalData.name}
@@ -93,7 +174,7 @@ export const Header: React.FC = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => handleNavClick(sectionId)}
+                  onClick={() => handleDesktopNavClick(sectionId)}
                   className={`text-sm font-medium px-2.5 lg:px-3 py-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     isActive
                       ? "text-accent bg-accent-muted/60 font-semibold"
@@ -112,7 +193,7 @@ export const Header: React.FC = () => {
               variant="secondary"
               size="sm"
               href="#contact"
-              onClick={() => handleNavClick("contact")}
+              onClick={() => handleDesktopNavClick("contact")}
             >
               Let&apos;s Connect
             </Button>
@@ -171,7 +252,7 @@ export const Header: React.FC = () => {
       {isMobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden border-b border-border-subtle bg-surface px-4 pt-3 pb-6 space-y-1 shadow-lg transition-all animate-in fade-in slide-in-from-top-2 max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="md:hidden absolute top-full left-0 w-full border-b border-border-subtle bg-surface px-4 pt-3 pb-6 space-y-1 shadow-xl transition-all animate-in fade-in slide-in-from-top-2 max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
           <nav aria-label="Mobile Navigation" className="flex flex-col space-y-1">
             {NavItems.ALL.map((item) => {
@@ -182,10 +263,7 @@ export const Header: React.FC = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => {
-                    handleNavClick(sectionId);
-                    closeMobileMenu();
-                  }}
+                  onClick={(e) => handleMobileNavClick(sectionId, e)}
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus ${
                     isActive
                       ? "text-accent bg-accent-muted/60 font-semibold"
@@ -204,10 +282,7 @@ export const Header: React.FC = () => {
               size="md"
               href="#contact"
               className="w-full justify-center"
-              onClick={() => {
-                handleNavClick("contact");
-                closeMobileMenu();
-              }}
+              onClick={(e) => handleMobileNavClick("contact", e)}
             >
               Let&apos;s Connect
             </Button>
