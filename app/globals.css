@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+
   /* Canvas & Surface Tokens */
   --bg-canvas: #fafafa;
   --bg-surface: #ffffff;
@@ -33,6 +35,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
+
     --bg-canvas: #09090b;
     --bg-surface: #121215;
     --bg-surface-hover: #18181c;
@@ -59,6 +63,8 @@
 }
 
 .dark {
+  color-scheme: dark;
+
   --bg-canvas: #09090b;
   --bg-surface: #121215;
   --bg-surface-hover: #18181c;
@@ -137,3 +143,121 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Browser Autofill / Autocomplete Styling
+   Ensures browser autofill (Chrome, Edge, Safari, Firefox) matches the active
+   theme tokens seamlessly without white/light-blue background or mismatched text.
+   ========================================================================== */
+
+/* WebKit / Chromium autofill styles */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  transition: background-color 5000000s ease-in-out 0s;
+}
+
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover,
+select:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px var(--accent) !important;
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px var(--accent) !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+  outline: none !important;
+}
+
+input[aria-invalid="true"]:-webkit-autofill:focus,
+textarea[aria-invalid="true"]:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px #ef4444 !important;
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px #ef4444 !important;
+}
+
+/* Surface-background inputs (if any) */
+.bg-surface:-webkit-autofill,
+.bg-surface:-webkit-autofill:hover,
+.bg-surface:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-surface) inset !important;
+  box-shadow: 0 0 0 1000px var(--bg-surface) inset !important;
+}
+
+.bg-surface:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-surface) inset, 0 0 0 2px var(--accent) !important;
+  box-shadow: 0 0 0 1000px var(--bg-surface) inset, 0 0 0 2px var(--accent) !important;
+}
+
+/* Standard :autofill pseudo-class (Firefox, HTML5 spec) */
+input:autofill,
+textarea:autofill,
+select:autofill {
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  transition: background-color 5000000s ease-in-out 0s;
+}
+
+input:autofill:hover,
+textarea:autofill:hover,
+select:autofill:hover,
+input:autofill:active,
+textarea:autofill:active,
+select:autofill:active {
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+}
+
+input:autofill:focus,
+textarea:autofill:focus,
+select:autofill:focus {
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px var(--accent) !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--text-primary) !important;
+  outline: none !important;
+}
+
+input[aria-invalid="true"]:autofill:focus,
+textarea[aria-invalid="true"]:autofill:focus {
+  box-shadow: 0 0 0 1000px var(--bg-canvas) inset, 0 0 0 2px #ef4444 !important;
+}
+
+.bg-surface:autofill,
+.bg-surface:autofill:hover,
+.bg-surface:autofill:active {
+  box-shadow: 0 0 0 1000px var(--bg-surface) inset !important;
+}
+
+.bg-surface:autofill:focus {
+  box-shadow: 0 0 0 1000px var(--bg-surface) inset, 0 0 0 2px var(--accent) !important;
+}
+

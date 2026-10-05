@@ -19,8 +19,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
-    default: "Aatif Khan Pathan | Senior Frontend Engineer & Senior Angular Developer",
-    template: "%s | Aatif Khan Pathan",
+    default: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    template: "%s | Aatifkhan Pathan",
   },
   description:
     "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
@@ -35,24 +35,24 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "Frontend Architecture",
     "Progressive Web Apps",
-    "Aatif Khan Pathan",
+    "Aatifkhan Pathan",
   ],
-  authors: [{ name: "Aatif Khan Pathan" }],
-  creator: "Aatif Khan Pathan",
-  publisher: "Aatif Khan Pathan",
+  authors: [{ name: "Aatifkhan Pathan" }],
+  creator: "Aatifkhan Pathan",
+  publisher: "Aatifkhan Pathan",
   ...(siteUrl ? { alternates: { canonical: "/" } } : {}),
   openGraph: {
-    title: "Aatif Khan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    title: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
     description:
       "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
     ...(siteUrl ? { url: siteUrl } : {}),
-    siteName: "Aatif Khan Pathan Portfolio",
+    siteName: "Aatifkhan Pathan Portfolio",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aatif Khan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    title: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
     description:
       "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
   },
@@ -78,7 +78,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": siteUrl ? `${siteUrl}/#person` : "#person",
-      "name": "Aatif Khan Pathan",
+      "name": "Aatifkhan Pathan",
       "jobTitle": "Senior Frontend Engineer",
       "description":
         "Senior Frontend Engineer specializing in Angular, TypeScript, RxJS, React, Next.js, and scalable enterprise web applications.",
@@ -109,8 +109,8 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": siteUrl ? `${siteUrl}/#website` : "#website",
       ...(siteUrl ? { url: siteUrl } : {}),
-      "name": "Aatif Khan Pathan Portfolio",
-      "description": "Personal Portfolio & Engineering Case Studies of Aatif Khan Pathan",
+      "name": "Aatifkhan Pathan Portfolio",
+      "description": "Personal Portfolio & Engineering Case Studies of Aatifkhan Pathan",
       "publisher": {
         "@id": siteUrl ? `${siteUrl}/#person` : "#person"
       },

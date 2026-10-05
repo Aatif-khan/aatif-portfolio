@@ -17,7 +17,7 @@ export interface PersonalData extends PersonalInfo {
 }
 
 export const personalData: PersonalData = {
-  name: "Aatif Khan Pathan",
+  name: "Aatifkhan Pathan",
   role: "Senior Frontend Engineer / Senior Angular Developer",
   specialization: "Angular • TypeScript • RxJS • React • Next.js",
   experienceYears: "6+",

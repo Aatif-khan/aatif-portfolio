@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
     // 5. Send Email via Resend
     const emailResult = await resend.emails.send({
-      from: `Aatif Khan Pathan <${senderEmail}>`,
+      from: `Aatifkhan Pathan <${senderEmail}>`,
       to: [recipientEmail],
       replyTo: trimmedEmail,
       subject: `Portfolio Contact: ${trimmedSubject}`,
@@ -121,7 +121,7 @@ export async function POST(request: Request) {
             <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #334155; white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p style="font-size: 12px; color: #94a3b8; margin: 0; text-align: right;">
-            Sent from Aatif Khan Pathan Portfolio • ${new Date().toISOString()}
+            Sent from Aatifkhan Pathan Portfolio • ${new Date().toISOString()}
           </p>
         </div>
       `,

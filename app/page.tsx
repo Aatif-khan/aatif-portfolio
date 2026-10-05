@@ -7,6 +7,7 @@ import { Projects } from "@/components/sections/projects";
 import { Services } from "@/components/sections/services";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/layout/footer";
+import { BackToTop } from "@/components/ui/back-to-top";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
