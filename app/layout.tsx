@@ -19,14 +19,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: {
-    default: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    default: "Aatifkhan Pathan | Frontend Engineer & Angular Developer",
     template: "%s | Aatifkhan Pathan",
   },
   description:
-    "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
+    "Frontend Engineer & Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
   keywords: [
-    "Senior Frontend Engineer",
-    "Senior Angular Developer",
+    "Frontend Engineer",
     "Angular Developer",
     "TypeScript Engineer",
     "RxJS Specialist",
@@ -42,9 +41,9 @@ export const metadata: Metadata = {
   publisher: "Aatifkhan Pathan",
   ...(siteUrl ? { alternates: { canonical: "/" } } : {}),
   openGraph: {
-    title: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    title: "Aatifkhan Pathan | Frontend Engineer & Angular Developer",
     description:
-      "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
+      "Frontend Engineer & Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
     ...(siteUrl ? { url: siteUrl } : {}),
     siteName: "Aatifkhan Pathan Portfolio",
     locale: "en_US",
@@ -52,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aatifkhan Pathan | Senior Frontend Engineer & Senior Angular Developer",
+    title: "Aatifkhan Pathan | Frontend Engineer & Angular Developer",
     description:
-      "Senior Frontend Engineer & Senior Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
+      "Frontend Engineer & Angular Developer with 6+ years of experience building scalable enterprise SaaS applications, data-driven web platforms, RxJS architecture, React, Next.js, and PWAs.",
   },
   robots: {
     index: true,
@@ -79,9 +78,9 @@ const jsonLd = {
       "@type": "Person",
       "@id": siteUrl ? `${siteUrl}/#person` : "#person",
       "name": "Aatifkhan Pathan",
-      "jobTitle": "Senior Frontend Engineer",
+      "jobTitle": "Frontend Engineer",
       "description":
-        "Senior Frontend Engineer specializing in Angular, TypeScript, RxJS, React, Next.js, and scalable enterprise web applications.",
+        "Frontend Engineer specializing in Angular, TypeScript, RxJS, React, Next.js, and scalable enterprise web applications.",
       ...(siteUrl ? { url: siteUrl } : {}),
       "sameAs": [
         "https://www.linkedin.com/in/aatif-khan-pathan",

@@ -18,13 +18,13 @@ export interface PersonalData extends PersonalInfo {
 
 export const personalData: PersonalData = {
   name: "Aatifkhan Pathan",
-  role: "Senior Frontend Engineer / Senior Angular Developer",
+  role: "Frontend Engineer / Angular Developer",
   specialization: "Angular • TypeScript • RxJS • React • Next.js",
   experienceYears: "6+",
   headline: "Building Scalable Enterprise Web Applications & Modern UI Architecture",
   tagline: "Scalable enterprise web applications, data-driven interfaces, workflow engines, and modern frontend architecture.",
   summary:
-    "Senior Frontend Engineer with 6+ years of experience building scalable enterprise web applications using Angular, TypeScript, RxJS, React, and Next.js. Experienced in developing enterprise SaaS platforms, data-driven applications, dashboards, workflow-based systems, administration portals, PWAs, and customer-facing applications.",
+    "Frontend Engineer with 6+ years of experience building scalable enterprise web applications using Angular, TypeScript, RxJS, React, and Next.js. Experienced in developing enterprise SaaS platforms, data-driven applications, dashboards, workflow-based systems, administration portals, PWAs, and customer-facing applications.",
   location: "Ahmedabad, Gujarat, India",
   email: "pathanaatif6@gmail.com",
   phone: "+91 75729 77724",
@@ -35,7 +35,7 @@ export const personalData: PersonalData = {
   primaryTech: ["Angular", "TypeScript", "RxJS", "React", "Next.js"],
   secondaryTech: ["Enterprise SaaS", "REST APIs", "PWA", "Tailwind CSS", "WebSockets"],
   aboutBio: [
-    "I am a Senior Frontend Engineer / Senior Angular Developer based in Ahmedabad, India, with 6+ years of professional experience building scalable web applications across enterprise SaaS platforms, operational systems, administration portals, and progressive web apps.",
+    "I am a Frontend Engineer / Angular Developer based in Ahmedabad, India, with 6+ years of professional experience building scalable web applications across enterprise SaaS platforms, operational systems, administration portals, and progressive web apps.",
     "My technical foundation centers on deep expertise in Angular, TypeScript, and RxJS alongside hands-on experience engineering modern React and Next.js applications. I focus on translating complex business requirements into intuitive, maintainable, and high-performance user interfaces.",
     "Throughout my career, I have architected reusable component libraries, multi-tenant administrative platforms, interactive canvas tools, mobile-first PWA field applications, real-time streaming dashboards, and secure API integrations.",
   ],

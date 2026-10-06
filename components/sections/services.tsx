@@ -287,7 +287,7 @@ export const Services: React.FC = () => {
               Have a frontend project or need an Angular / Next.js engineer?
             </h3>
             <p className="text-sm text-txt-secondary leading-relaxed">
-              Whether you need to build a new enterprise web application, modernize an existing codebase, or add senior frontend capacity to your team, let&apos;s discuss how I can help.
+              Whether you need to build a new enterprise web application, modernize an existing codebase, or add frontend capacity to your team, let&apos;s discuss how I can help.
             </p>
           </div>
 

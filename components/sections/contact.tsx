@@ -222,7 +222,7 @@ export const Contact: React.FC = () => {
         <SectionHeading
           label="Get In Touch"
           title="Let's Work Together"
-          description="Have a frontend project, a product idea, or a Senior Frontend / Angular opportunity to discuss? I'd be happy to connect."
+          description="Have a frontend project, a product idea, or a Frontend / Angular opportunity to discuss? I'd be happy to connect."
         />
 
         {/* 2-Column Grid Layout */}
@@ -350,7 +350,7 @@ export const Contact: React.FC = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="e.g. Senior Angular Engineer Opportunity / Project Inquiry"
+                    placeholder="e.g. Angular Engineer Opportunity / Project Inquiry"
                     aria-required="true"
                     aria-invalid={touched.subject && Boolean(errors.subject)}
                     className={`w-full px-3.5 py-2.5 rounded-lg bg-canvas border text-sm text-txt-primary placeholder:text-txt-muted transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${
@@ -592,7 +592,7 @@ export const Contact: React.FC = () => {
                 </h4>
               </div>
               <p className="text-xs text-txt-secondary leading-relaxed">
-                Currently open for Senior Frontend Engineer and Senior Angular Developer roles, enterprise web app contracts, and frontend architecture consultations.
+                Currently open for Frontend Engineer and Angular Developer roles, enterprise web app contracts, and frontend architecture consultations.
               </p>
             </Card>
           </div>

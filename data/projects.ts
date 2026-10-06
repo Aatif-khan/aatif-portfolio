@@ -8,7 +8,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "Enterprise Workflow Automation, Data Taxonomy & Knowledge Discovery",
     description:
       "Enterprise-grade web application focused on data management, workflow automation, document processes, and knowledge-driven interfaces.",
-    myRole: "Senior Frontend Engineer / Angular Developer",
+    myRole: "Frontend Engineer / Angular Developer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: true,
     highlights: [
@@ -31,7 +31,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "An enterprise-grade web application focused on data management, taxonomy control, document processing workflows, knowledge graph visualization, and real-time collaborative state.",
       myRole:
-        "Senior Frontend Engineer / Angular Developer responsible for Angular client architecture, reactive RxJS state management, workflow visualizers, recursive template component design, and real-time communication layers.",
+        "Frontend Engineer / Angular Developer responsible for Angular client architecture, reactive RxJS state management, workflow visualizers, recursive template component design, and real-time communication layers.",
       challenge:
         "The application involved complex data-driven workflows and deeply interconnected features requiring consistent state synchronization, reusable UI primitives, dynamic visual canvas interactions (BPMN workflow diagrams and Cytoscape relationship graphs), recursive template building, drag-and-drop layouts, and low-latency WebSocket updates without compromising rendering performance.",
       contributions: [
@@ -75,7 +75,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "Multi-Tenant Enterprise Operations, Resource Management & Scheduling",
     description:
       "Multi-tenant enterprise platform supporting complex operational workflows, scheduling, resource management, and data-driven business processes.",
-    myRole: "Senior Frontend Engineer / Angular Developer",
+    myRole: "Frontend Engineer / Angular Developer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: true,
     highlights: [
@@ -98,7 +98,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "A multi-tenant enterprise operations platform designed to streamline complex resource allocation, scheduling, operational estimation, and data-heavy enterprise workflows.",
       myRole:
-        "Senior Frontend Engineer / Angular Developer responsible for enterprise module interfaces, scheduling user experience, multi-tenant security headers, SignalR integration, and NSwag TypeScript client automation.",
+        "Frontend Engineer / Angular Developer responsible for enterprise module interfaces, scheduling user experience, multi-tenant security headers, SignalR integration, and NSwag TypeScript client automation.",
       challenge:
         "Managing high-density operational data streams, multi-tenant access boundaries, dynamic operational grid updates, complex multi-step rate calculation forms, and keeping the interface responsive under real-time event streams.",
       contributions: [
@@ -140,7 +140,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "Mobile-First Field Workflows, State-Driven Operations & Offline PWA",
     description:
       "Mobile-first Progressive Web Application designed for field teams to manage operational activities, time-based workflows, and site-related tasks.",
-    myRole: "Senior Frontend Engineer / Angular Developer",
+    myRole: "Frontend Engineer / Angular Developer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: true,
     highlights: [
@@ -161,7 +161,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "A mobile-first Progressive Web Application tailored for field operations teams to manage daily activity tracking, equipment logs, site documents, and external vendor verification directly on mobile devices.",
       myRole:
-        "Senior Frontend Engineer / Angular Developer responsible for mobile UX layout, state-driven workflow state machine logic, Angular Service Worker offline caching strategies, and touch-optimized interactive viewers.",
+        "Frontend Engineer / Angular Developer responsible for mobile UX layout, state-driven workflow state machine logic, Angular Service Worker offline caching strategies, and touch-optimized interactive viewers.",
       challenge:
         "Delivering a fast, responsive mobile experience for field personnel working in low-connectivity environments, ensuring accurate activity tracking through controlled state transitions, and enabling fluid document viewing on mobile touch screens.",
       contributions: [
@@ -199,7 +199,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "React / Next.js High-Traffic Interactive Canvas & Payment Workflows",
     description:
       "Customer-facing web platforms built with React and Next.js, featuring interactive coordinate selection tools, timer-driven workflows, search filtering, and payment integrations.",
-    myRole: "Senior Frontend Engineer / Next.js Developer",
+    myRole: "Frontend Engineer / Next.js Developer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: true,
     highlights: [
@@ -221,7 +221,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "Consumer-facing React and Next.js web applications delivering interactive canvas selection tools, digital catalog search, user account authentication, and multi-currency payment checkout.",
       myRole:
-        "Senior Frontend Engineer / Next.js Developer responsible for interactive canvas tools, responsive layout design, client state management, cart timers, payment integrations, and performance optimization.",
+        "Frontend Engineer / Next.js Developer responsible for interactive canvas tools, responsive layout design, client state management, cart timers, payment integrations, and performance optimization.",
       challenge:
         "Delivering smooth 60fps interactive canvas tools with magnifying lens controls, maintaining precise coordinate transformation across variable screen sizes, handling reservation countdown timers, and providing seamless multi-currency checkout.",
       contributions: [
@@ -261,7 +261,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "Next.js Admin Systems, Dynamic Forms, Schema Validation & Analytics",
     description:
       "Centralized administrative platform for managing multi-region platform settings, user role permissions, content catalog items, subscription tiers, and analytics dashboards.",
-    myRole: "Senior Frontend Engineer / React & Next.js Developer",
+    myRole: "Frontend Engineer / React & Next.js Developer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: true,
     highlights: [
@@ -283,7 +283,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "An enterprise administration portal designed to manage multi-region platform settings, user role permissions, content inventories, pricing rules, subscription accounts, and executive analytics dashboards.",
       myRole:
-        "Senior Frontend Engineer / React & Next.js Developer responsible for admin frontend architecture, schema-driven dynamic forms, data table primitives, analytics charting integration, and route authorization handlers.",
+        "Frontend Engineer / React & Next.js Developer responsible for admin frontend architecture, schema-driven dynamic forms, data table primitives, analytics charting integration, and route authorization handlers.",
       challenge:
         "Building scalable, schema-driven administrative form builders, managing complex multi-column filterable data tables with server-side pagination, visualizing analytics metrics clearly, and enforcing strict admin route protection.",
       contributions: [
@@ -383,7 +383,7 @@ export const projectsData: ProjectItem[] = [
     subtitle: "Consumer Audio Storytelling & Subscription Platform",
     description:
       "Consumer-facing audio streaming platform with content discovery, custom playback controls, subscription onboarding, and personalized audio experiences.",
-    myRole: "Senior Frontend Engineer",
+    myRole: "Frontend Engineer",
     confidentialNotice: "Professional Experience — Confidential Project",
     featured: false,
     highlights: [
@@ -404,7 +404,7 @@ export const projectsData: ProjectItem[] = [
       overview:
         "A consumer audio storytelling and streaming web application delivering high-quality audio playback, subscription memberships, content catalogs, and personalized user playlists.",
       myRole:
-        "Senior Frontend Engineer responsible for custom HTML5 audio player state, catalog search interfaces, NextAuth.js social login integration, and Stripe subscription onboarding workflows.",
+        "Frontend Engineer responsible for custom HTML5 audio player state, catalog search interfaces, NextAuth.js social login integration, and Stripe subscription onboarding workflows.",
       challenge:
         "Building a persistent, uninterrupted audio player that continues playing smoothly during client-side route navigation, supporting dynamic media streaming, and managing multi-tiered subscription access states.",
       contributions: [
