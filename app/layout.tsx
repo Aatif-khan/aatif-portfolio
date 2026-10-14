@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { FaviconWatcher } from "@/components/ui/favicon";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -68,7 +69,19 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/favicon-light.svg",
+        media: "(prefers-color-scheme: light)",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-dark.svg",
+        media: "(prefers-color-scheme: dark)",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
@@ -134,8 +147,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=document.documentElement,b=document.body,isDark=d.classList.contains('dark')||(b&&b.classList.contains('dark'))||d.getAttribute('data-theme')==='dark'||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);var href=isDark?'/favicon-dark.svg':'/favicon-light.svg';var links=document.querySelectorAll("link[rel*='icon']:not([rel*='apple'])");Array.prototype.forEach.call(links,function(l){l.remove();});var link=document.createElement('link');link.id='dynamic-favicon';link.rel='icon';link.type='image/svg+xml';link.href=href;document.head.appendChild(link);}catch(e){}})();`,
+          }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-canvas text-txt-primary font-sans selection:bg-accent-muted selection:text-accent">
+        <FaviconWatcher />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-accent focus:text-accent-fg focus:font-mono focus:text-sm focus:rounded-b-lg"
